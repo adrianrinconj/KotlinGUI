@@ -3,9 +3,9 @@
 // Creates a GUI from kotlin and then allows the user to play music and switches
 // album covers depending on the song that is being played currently.
 
-
 import java.awt.Dimension
 import java.awt.EventQueue
+
 import java.io.File
 import javax.sound.sampled.AudioSystem
 import javax.imageio.ImageIO
@@ -50,10 +50,10 @@ fun createAndShowGUI() {
 
         // when statement that displays image based on the value of 'clicked'
         when (clicked) {
-            "sch" -> myPicture = ImageIO.read(File("src/sch_img.png"))
-            "dfl" -> myPicture = ImageIO.read(File("src/dfl_img.png"))
-            "ili" -> myPicture = ImageIO.read(File("src/ili_img.png"))
-            "guts" -> myPicture = ImageIO.read(File("src/guts_img.png"))
+            "king" -> myPicture = ImageIO.read(File("src/king.png"))
+            "nuj" -> myPicture = ImageIO.read(File("src/brothel_love.png"))
+            "joey" -> myPicture = ImageIO.read(File("src/joey.png"))
+            "jin" -> myPicture = ImageIO.read(File("src/jinsang.png"))
         }
 
         // this adds the specific image to picLabel, then displays it on the panel
@@ -70,56 +70,56 @@ fun createAndShowGUI() {
         print(clicked)
     }
 
-    // Short Change Hero button
-    val sch = JButton("Short Change Hero")
+    // King button
+    val king = JButton("Ring A Bell")
     // this closes the song that is playing then sets buttonClicked() to the name of the button
-    // passes through changeImage, changes the image accordingly, then plays the song Short Change Hero
-    sch.addActionListener {
+    // passes through changeImage, changes the image accordingly, then plays the song Ring A Bell
+    king.addActionListener {
         clip.close()
-        buttonClicked("sch")
+        buttonClicked("king")
         changeImage()
-        val audioInputStream = AudioSystem.getAudioInputStream(File("src/Short Change Hero.wav"))
+        val audioInputStream = AudioSystem.getAudioInputStream(File("src/Tekken 2 (OST) - Ring A Bell - Thème de King.wav"))
         clip.open(audioInputStream)
         clip.start()
     }
 
 
 
-    // What You Won't Do For Love button
-    val dfl = JButton("What You Won't Do For Love")
+    // Jinsang button
+    val jin = JButton("Feelings")
     // this closes the song that is playing then sets buttonClicked() to the name of the button
-    // passes through changeImage, changes the image accordingly, then plays the song What You Won't Do For Love
-    dfl.addActionListener {
+    // passes through changeImage, changes the image accordingly, then plays the song Feelings
+    jin.addActionListener {
         clip.close()
-        buttonClicked("dfl")
+        buttonClicked("jin")
         changeImage()
-        val audioInputStream = AudioSystem.getAudioInputStream(File("src/What You Won't Do for Love.wav"))
+        val audioInputStream = AudioSystem.getAudioInputStream(File("src/jinsang - feelings..wav"))
         clip.open(audioInputStream)
         clip.start()
     }
 
-    // I Like It button
-    val ili = JButton("I Like It")
+    // Love is only a Feeling button
+    val joey = JButton("Love Is Only A Feeling")
     // this closes the song that is playing then sets buttonClicked() to the name of the button
-    // passes through changeImage, changes the image accordingly, then plays the song I like It
-    ili.addActionListener {
+    // passes through changeImage, changes the image accordingly, then plays the song Love is only a feeling
+    joey.addActionListener {
         clip.close()
-        buttonClicked("ili")
+        buttonClicked("joey")
         changeImage()
-        val audioInputStream = AudioSystem.getAudioInputStream(File("src/I Like It.wav"))
+        val audioInputStream = AudioSystem.getAudioInputStream(File("src/Joey Bada\$\$ - “Love Is Only A Feeling“ (Official Audio).wav"))
         clip.open(audioInputStream)
         clip.start()
     }
 
-    // Guts' Theme Song button
-    val guts = JButton("Guts' Theme")
+    // Brothel Love button
+    val nuj = JButton("Brothel Love")
     // this closes the song that is playing then sets buttonClicked() to the name of the button
-    // passes through changeImage, changes the image accordingly, then plays Guts' Theme Song
-    guts.addActionListener {
+    // passes through changeImage, changes the image accordingly, then plays Brothel Love
+    nuj.addActionListener {
         clip.close()
-        buttonClicked("guts")
+        buttonClicked("nuj")
         changeImage()
-        val audioInputStream = AudioSystem.getAudioInputStream(File("src/guts.wav"))
+        val audioInputStream = AudioSystem.getAudioInputStream(File("src/Nujabes - Brothel Love.wav"))
         clip.open(audioInputStream)
         clip.start()
     }
@@ -132,10 +132,10 @@ fun createAndShowGUI() {
     }
 
     // this block of code adds all the buttons and sets the frame. It then packs the frame and makes it visible
-    panel.add(dfl)
-    panel.add(sch)
-    panel.add(ili)
-    panel.add(guts)
+    panel.add(jin)
+    panel.add(king)
+    panel.add(joey)
+    panel.add(nuj)
     panel.add(stop)
     frame.preferredSize = Dimension(500, 500)
     frame.pack()
